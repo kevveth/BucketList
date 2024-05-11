@@ -8,21 +8,21 @@
 import SwiftUI
 
 enum LoadingState: String, CaseIterable {
+    case loaded = "Loaded"
     case loading = "Loading"
-    case success = "Success"
     case failed = "Failed"
 }
 
-struct LoadingView: View {
+struct LoadStateView: View {
     @State private var loadingState: LoadingState = .loading
     
     var body: some View {
         VStack {
             switch loadingState {
             case .loading:
-                LoadView()
-            case .success:
-                SuccessView()
+                LoadingView()
+            case .loaded:
+                LoadedView()
             case .failed:
                 FailedView()
             }
@@ -36,13 +36,13 @@ struct LoadingView: View {
     }
 }
 
-struct LoadView: View {
+struct LoadingView: View {
     var body: some View {
         Text("Loading...")
     }
 }
 
-struct SuccessView: View {
+struct LoadedView: View {
     var body: some View {
         Text("Success!")
     }
@@ -55,5 +55,5 @@ struct FailedView: View {
 }
 
 #Preview {
-    LoadingView()
+    LoadStateView()
 }

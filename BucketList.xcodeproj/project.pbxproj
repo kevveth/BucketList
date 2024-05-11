@@ -16,7 +16,7 @@
 		6C56FA7C2BEE0EEB00E8AE56 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C56FA7B2BEE0EEB00E8AE56 /* PrivacyView.swift */; };
 		6C56FA7E2BEE1BFD00E8AE56 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C56FA7D2BEE1BFD00E8AE56 /* Location.swift */; };
 		6C56FA802BEE223000E8AE56 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C56FA7F2BEE223000E8AE56 /* EditView.swift */; };
-		6C56FA822BEE28BB00E8AE56 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C56FA812BEE28BB00E8AE56 /* LoadingView.swift */; };
+		6C56FA822BEE28BB00E8AE56 /* LoadStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C56FA812BEE28BB00E8AE56 /* LoadStateView.swift */; };
 		6C56FA842BEE2A2500E8AE56 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C56FA832BEE2A2500E8AE56 /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +32,7 @@
 		6C56FA7B2BEE0EEB00E8AE56 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		6C56FA7D2BEE1BFD00E8AE56 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		6C56FA7F2BEE223000E8AE56 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
-		6C56FA812BEE28BB00E8AE56 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		6C56FA812BEE28BB00E8AE56 /* LoadStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadStateView.swift; sourceTree = "<group>"; };
 		6C56FA832BEE2A2500E8AE56 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,7 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				6C56FA832BEE2A2500E8AE56 /* User.swift */,
-				6C56FA812BEE28BB00E8AE56 /* LoadingView.swift */,
+				6C56FA812BEE28BB00E8AE56 /* LoadStateView.swift */,
 				6C56FA7F2BEE223000E8AE56 /* EditView.swift */,
 				6C56FA7D2BEE1BFD00E8AE56 /* Location.swift */,
 				6C56FA7B2BEE0EEB00E8AE56 /* PrivacyView.swift */,
@@ -166,7 +166,7 @@
 				6C56FA692BEB822A00E8AE56 /* BucketListApp.swift in Sources */,
 				6C56FA782BED916300E8AE56 /* FileManager-Codable.swift in Sources */,
 				6C56FA802BEE223000E8AE56 /* EditView.swift in Sources */,
-				6C56FA822BEE28BB00E8AE56 /* LoadingView.swift in Sources */,
+				6C56FA822BEE28BB00E8AE56 /* LoadStateView.swift in Sources */,
 				6C56FA7E2BEE1BFD00E8AE56 /* Location.swift in Sources */,
 				6C56FA7C2BEE0EEB00E8AE56 /* PrivacyView.swift in Sources */,
 			);
