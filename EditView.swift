@@ -39,11 +39,12 @@ struct EditView: View {
                     switch loadingState {
                     case .loaded:
                         ForEach(pages, id: \.pageID) { page in
-                            /*@START_MENU_TOKEN@*/Text(page.title)/*@END_MENU_TOKEN@*/
-                                .font(.headline)
-                            + Text(": ") +
-                            Text("Page description here...")
-                                .italic()
+                            VStack(alignment: .leading) {
+                                /*@START_MENU_TOKEN@*/Text(page.title)/*@END_MENU_TOKEN@*/
+                                    .font(.headline)
+                                Text(page.description.localizedCapitalized)
+                                    .italic()
+                            }
                         }
                     case .loading:
                         Text("Loading...")

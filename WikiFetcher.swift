@@ -46,7 +46,7 @@ struct WikiFetcher {
             let items = try JSONDecoder().decode(Result.self, from: data)
             
             // Success - Convert the array values to the pages array
-            pages = items.query.pages.values.sorted { $0.title < $1.title }
+            pages = items.query.pages.values.sorted()
             loadingState.wrappedValue = .loaded
         } catch {
             loadingState.wrappedValue = .failed
@@ -64,7 +64,7 @@ struct Query: Codable {
     let pages: [Int: Page]
 }
 
-struct Page: Codable {
+struct Page: Codable, Comparable {
     enum CodingKeys: String, CodingKey {
         case pageID = "pageid"
         case title
@@ -74,4 +74,12 @@ struct Page: Codable {
     let pageID: Int
     let title: String
     let terms: [String: [String]]?
+    
+    var description: String {
+        terms?["description"]?.first ?? "No further information."
+    }
+    
+    static func <(lhs: Page, rhs: Page) -> Bool {
+        lhs.title < rhs.title
+    }
 }
