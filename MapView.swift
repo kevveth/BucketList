@@ -26,6 +26,10 @@ struct MapView: View {
     //    ]
     
     @State private var viewModel = ViewModel()
+    @State private var isStandardMap = true
+    var mapMode: MapStyle {
+        isStandardMap ? .standard : .hybrid
+    }
     
     var body: some View {
         if viewModel.isUnlocked {
@@ -46,6 +50,9 @@ struct MapView: View {
                             }
                         }
                     }
+                    .mapStyle(mapMode)
+                    .navigationTitle("BucketList")
+                    .navigationBarTitleDisplayMode(.inline)
                     .onTapGesture { position in
                         if let coordinate = proxy.convert(position, from: .local) {
                             viewModel.addLocation(at: coordinate)
@@ -54,6 +61,13 @@ struct MapView: View {
                     .sheet(item: $viewModel.selectedPlace) { place in
                         EditView(location: place) {
                             viewModel.update(location: $0)
+                        }
+                    }
+                    .toolbar {
+                        ToolbarItem {
+                            Button("Toggle Map Mode", systemImage: "arrow.up.arrow.down") {
+                                isStandardMap.toggle()
+                            }
                         }
                     }
                 }
