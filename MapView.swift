@@ -10,32 +10,13 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @State private var startPosition = MapCameraPosition.region(
-        MKCoordinateRegion(
-            // San Diego
-            center: CLLocationCoordinate2D(latitude: 32.7157, longitude: -117.1611),
-            span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
-        )
-    )
-    
-    //    let locations = [
-    //        // 32.734716598885875, -117.14454537432057
-    //        Location(name: "Balboa Park", coordinates: CLLocationCoordinate2D(latitude: 32.7347, longitude: -117.1445)),
-    //        // 32.857783225798926, -117.2577201526877
-    //        Location(name: "La Jolla Shores", coordinates: CLLocationCoordinate2D(latitude: 32.8578, longitude: -117.2577))
-    //    ]
-    
     @State private var viewModel = ViewModel()
-    @State private var isStandardMap = true
-    var mapMode: MapStyle {
-        isStandardMap ? .standard : .hybrid
-    }
     
     var body: some View {
         if viewModel.isUnlocked {
             VStack {
                 MapReader { proxy in
-                    Map(initialPosition: startPosition) {
+                    Map(initialPosition: viewModel.startPosition) {
                         ForEach(viewModel.locations) { location in
                             Annotation(location.name, coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)) {
                                 Image(systemName: "star.circle")
@@ -50,7 +31,7 @@ struct MapView: View {
                             }
                         }
                     }
-                    .mapStyle(mapMode)
+                    .mapStyle(viewModel.mapMode)
                     .navigationTitle("BucketList")
                     .navigationBarTitleDisplayMode(.inline)
                     .onTapGesture { position in
@@ -66,7 +47,7 @@ struct MapView: View {
                     .toolbar {
                         ToolbarItem {
                             Button("Toggle Map Mode", systemImage: "arrow.up.arrow.down") {
-                                isStandardMap.toggle()
+                                viewModel.isStandardMap.toggle()
                             }
                         }
                     }

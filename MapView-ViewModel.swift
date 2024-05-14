@@ -6,18 +6,38 @@
 //
 
 import Foundation
-import CoreLocation
 import LocalAuthentication
+import SwiftUI
+import MapKit
 
 extension MapView {
     @Observable
     class ViewModel {
+        var startPosition = MapCameraPosition.region(
+            MKCoordinateRegion(
+                // San Diego
+                center: CLLocationCoordinate2D(latitude: 32.7157, longitude: -117.1611),
+                span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+            )
+        )
+        
+//        let locations = [
+//            // 32.734716598885875, -117.14454537432057
+//            Location(name: "Balboa Park", coordinates: CLLocationCoordinate2D(latitude: 32.7347, longitude: -117.1445)),
+//            // 32.857783225798926, -117.2577201526877
+//            Location(name: "La Jolla Shores", coordinates: CLLocationCoordinate2D(latitude: 32.8578, longitude: -117.2577))
+//        ]
+        
         private(set) var locations: [Location]
         var selectedPlace: Location?
         
         let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
         
-        var isUnlocked = false
+        var isUnlocked = true
+        var isStandardMap = true
+        var mapMode: MapStyle {
+            isStandardMap ? .standard : .hybrid
+        }
         
         init() {
             do {
